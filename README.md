@@ -17,10 +17,15 @@ source env/g5_modules
 
 ### CMake
 
+If you are using the `g5_modules` above, then you have `$BASEDIR` set and can do:
+
 ```bash
 cmake -B build -DCMAKE_INSTALL_PREFIX=install -DCMAKE_PREFIX_PATH=$BASEDIR/Linux
 ```
-such that `/path/to/baselibs/install` contains the following directories:
+
+If you are not using Baselibs, then you need to set `CMAKE_PREFIX_PATH` to point to
+`/path/to/baselibs/install` such that it contains the following directories:
+
 * `include/udunits2`
 * `lib/libudunits2.a`
 * `Fortran_UDUNITS2-1.0`
@@ -41,6 +46,9 @@ cmake --build build --target install
 ### UDUNITS2_XML_PATH
 
 Note that you might need to set `UDUNITS2_XML_PATH` in your environment to point to the
-right udunits2.xml file.  This is the file that contains the unit definitions.  It is
-located at `/path/to/baselibs/install/share/udunits/udunits2.xml` if you are using the
-baselibs install above.
+right udunits2.xml file.  This is the file that contains the unit definitions.  
+
+This is taken care of for you if you are using the
+`g5_modules` above. If not, it is usually located at
+`/path/to/baselibs/install/share/udunits/udunits2.xml` if you are using
+the baselibs install above.
