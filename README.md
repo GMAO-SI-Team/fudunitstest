@@ -4,10 +4,21 @@ This repo is for testing Fortran Udunits
 
 ## Building with Baselibs
 
+### Loading modules
+
+To make it easy on discover, you can load a `g5_modules`. So on `bash`:
+```bash
+source env/g5_modules.sh
+```
+and on `tcsh`:
+```tcsh
+source env/g5_modules
+```
+
 ### CMake
 
 ```bash
-cmake -B build -DCMAKE_INSTALL_PREFIX=install -DCMAKE_PREFIX_PATH=/path/to/baselibs/install
+cmake -B build -DCMAKE_INSTALL_PREFIX=install -DCMAKE_PREFIX_PATH=$BASEDIR/Linux
 ```
 such that `/path/to/baselibs/install` contains the following directories:
 * `include/udunits2`
